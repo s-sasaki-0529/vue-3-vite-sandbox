@@ -1,6 +1,9 @@
 <template>
-  <h1>Hello, Vue 3</h1>
-  <Stepper initial="5" />
+  <Stepper>
+    <template #counter="{ count }">
+      <span data-cy="counter">hogehoge{{ count }}</span>
+    </template>
+  </Stepper>
 </template>
 
 <script lang="ts">
@@ -10,6 +13,11 @@ import Stepper from './components/Stepper.vue'
 export default defineComponent({
   components: {
     Stepper
+  },
+  methods: {
+    onChangeValue(value: number) {
+      alert(value)
+    }
   }
 })
 </script>

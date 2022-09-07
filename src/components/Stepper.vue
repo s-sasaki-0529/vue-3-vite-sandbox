@@ -1,8 +1,10 @@
 <template>
   <div>
-    <button aria-label="decrement" @click="count--">-</button>
-    <span data-cy="counter">{{ count }}</span>
-    <button aria-label="increment" @click="count++">+</button>
+    <button aria-label="decrement" @click="decrement">-</button>
+    <slot name="counter" :count="count">
+      <span data-cy="counter">{{ count }}</span>
+    </slot>
+    <button aria-label="increment" @click="increment">+</button>
   </div>
 </template>
 
@@ -20,6 +22,16 @@ export default defineComponent({
   data() {
     return {
       count: this.initial
+    }
+  },
+  methods: {
+    increment() {
+      this.count++
+      this.$emit('change', this.count)
+    },
+    decrement() {
+      this.count--
+      this.$emit('change', this.count)
     }
   }
 })
