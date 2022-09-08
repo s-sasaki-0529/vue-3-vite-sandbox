@@ -21,6 +21,9 @@ import 'modern-css-reset'
 // require('./commands')
 
 import { mount } from 'cypress/vue'
+import store from '../../src/store'
+import i18n from '../../src/i18n'
+import router from '../../src/router'
 
 // Augment the Cypress namespace to include type definitions for
 // your custom command.
@@ -34,7 +37,13 @@ declare global {
   }
 }
 
-Cypress.Commands.add('mount', mount)
+Cypress.Commands.add('mount', component => {
+  return mount(component, {
+    global: {
+      plugins: [store, i18n, router]
+    }
+  })
+})
 
 // Example use:
 // cy.mount(MyComponent)
