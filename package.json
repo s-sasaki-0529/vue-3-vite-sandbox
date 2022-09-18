@@ -27,8 +27,9 @@
       "es2022": true
     },
     "extends": [
-      "@vue/typescript/recommended",
-      "plugin:vue/vue3-recommended"
+      "eslint:recommended",
+      "plugin:vue/vue3-recommended",
+      "@vue/eslint-config-typescript/recommended"
     ],
     "parserOptions": {
       "project": "./tsconfig.json",

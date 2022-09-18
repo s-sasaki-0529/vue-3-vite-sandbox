@@ -1,11 +1,8 @@
 <template>
-  <h1>Position</h1>
-  <p>x: {{ x }}</p>
-  <p>y: {{ y }}</p>
+  <h1>Hello, Vue 3</h1>
 </template>
 
-<script setup lang="ts">
-import { useMousePosition } from './hooks/useMousePosition'
-
-const { x, y } = $(useMousePosition())
+<script lang="ts">
+import { defineComponent } from 'vue'
+export default defineComponent({})
 </script>
